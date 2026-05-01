@@ -5,7 +5,7 @@ import { getMessages, saveMessage, deleteMessage } from "../services/api";
 import { io } from "socket.io-client";
 import styles from "../styles/Chat.module.css";
 
-const socket = io(import.meta.env.VITE_SOCKET_URL || "https://campushive02.onrender.com");
+
 const socket = io(import.meta.env.VITE_SOCKET_URL);
 
 console.log("Socket URL:", import.meta.env.VITE_SOCKET_URL);

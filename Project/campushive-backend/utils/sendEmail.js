@@ -1,25 +1,15 @@
-// utils/sendEmail.js
-const nodemailer = require("nodemailer");
+const { Resend } = require('resend');
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendEmail = async ({ to, subject, html }) => {
   try {
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"CampusHive" <${process.env.EMAIL_USER}>`,
+    await resend.emails.send({
+      from: 'CampusHive <noreply@placementor.xyz>',
       to,
       subject,
       html,
     });
-
     console.log("Email sent successfully ✅");
   } catch (error) {
     console.log("Email error ❌:", error.message);

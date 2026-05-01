@@ -22,7 +22,7 @@ const httpServer = http.createServer(app);
 // ✅ Allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://campushive02.netlify.app",
+  "campushive02y.netlify.app",
 ];
 
 // ✅ CORS OPTIONS (dynamic)
